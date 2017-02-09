@@ -7,3 +7,4 @@ GhcStage1HcOpts = -O -fasm
 GhcStage2HcOpts = -O -fasm
 GhcHcOpts       = -Rghc-timing
 GhcLibHcOpts    = -O
+HADDOCK_DOCS=NO
