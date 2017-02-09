@@ -31,8 +31,8 @@ WORKDIR /opt/ghc-cross
 RUN rm bin/x86_64-pc-linux-musl-hp2ps
 
 # linked with glibc, not musl, build system bug, let's build an alternative one
-RUN rm lib/x86_64-pc-linux-musl-ghc-8.0.1/unlit
-RUN ( cd /tmp/ghc-8.0.1/utils/unlit ; musl-gcc unlit.c ) ; cp /tmp/ghc-8.0.1/utils/unlit/a.out lib/x86_64-pc-linux-musl-ghc-8.0.1/unlit
+RUN rm lib/x86_64-pc-linux-musl-ghc-8.0.1/bin/unlit
+RUN ( cd /tmp/ghc-8.0.1/utils/unlit ; musl-gcc unlit.c ) ; cp /tmp/ghc-8.0.1/utils/unlit/a.out lib/x86_64-pc-linux-musl-ghc-8.0.1/bin/unlit
 
 # we want to use normal gcc, not musl-gcc once we move this ghc-cross into a musl based distro
 RUN sed -i 's/musl-gcc/gcc/' lib/x86_64-pc-linux-musl-ghc-8.0.1/settings
