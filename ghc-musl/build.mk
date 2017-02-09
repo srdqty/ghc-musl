@@ -1,8 +1,10 @@
 V = 0
 DYNAMIC_GHC_PROGRAMS = NO
+DYNAMIC_BY_DEFAULT = NO
 GhcLibWays = v
-SRC_HC_OPTS     = -O -H64m -optl--no-pie
-GhcStage1HcOpts = -O -fasm
-GhcStage2HcOpts = -O2 -fasm
-GhcHcOpts       = -Rghc-timing
-GhcLibHcOpts    = -O2
+SRC_HC_OPTS     = -O -H64m -optl--no-pie -static -optl-static
+GhcStage1HcOpts = -O -fasm -static -optl-static
+GhcStage2HcOpts = -O2 -fasm -static -optl-static
+GhcHcOpts       = -Rghc-timing -static -optl-static
+GhcLibHcOpts    = -O2 -static -optl-static
+HADDOCK_DOCS=NO
